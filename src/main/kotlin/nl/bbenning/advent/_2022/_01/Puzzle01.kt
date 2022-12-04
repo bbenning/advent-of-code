@@ -1,4 +1,4 @@
-package nl.bbenning.advent._2022
+package nl.bbenning.advent._2022._01
 
 import org.apache.commons.lang3.StringUtils
 import java.io.File
