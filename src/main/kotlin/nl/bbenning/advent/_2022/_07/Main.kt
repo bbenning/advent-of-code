@@ -11,8 +11,8 @@ object Main {
 
     private class FileNode(val name: String, val children: MutableMap<String, FileNode>?, val parent: FileNode?, val type: FileNodeType, val size: Long?)
 
-    private fun traverseAndReturnDirectorieNamesPlusSizes(rootNode: FileNode): Map<String, Long> {
-        val sizeMap = mutableMapOf<String, Long>()
+    private fun traverseAndReturnDirectorieNamesPlusSizes(rootNode: FileNode): Map<FileNode, Long> {
+        val sizeMap = mutableMapOf<FileNode, Long>()
 
         fun directorySize(curDirectoryNode: FileNode): Long {
             val size: Long = curDirectoryNode.children!!.map {
@@ -23,7 +23,7 @@ object Main {
                 }
             }.sum()
 
-            sizeMap[curDirectoryNode.name] = size
+            sizeMap[curDirectoryNode] = size
             return size
         }
 
@@ -48,23 +48,29 @@ object Main {
                 curDirectory
             } else if (commandLine.startsWith("dir ")){
                 val name = commandLine.substring("dir ".length)
-                val newFileNode = FileNode(name, mutableMapOf(), curDirectory, FileNodeType.DIRECTORY, null)
-                curDirectory.children!![name] = newFileNode // want it to fail in case it's wrong
+                if(!curDirectory.children!!.contains(name)) {
+                    val newFileNode = FileNode(name, mutableMapOf(), curDirectory, FileNodeType.DIRECTORY, null)
+                    curDirectory.children[name] = newFileNode // want it to fail in case it's wrong
+                }
                 curDirectory
             } else {
                 val splitCmdLine = commandLine.split(" ")
-                val size = splitCmdLine[0].toLong()
                 val name = splitCmdLine[1]
-                val newFileNode = FileNode(name, null, curDirectory, FileNodeType.FILE, size)
-                curDirectory.children!![name] = newFileNode // want it to fail in case it's wrong
+                if(!curDirectory.children!!.contains(name)) {
+                    val size = splitCmdLine[0].toLong()
+                    val newFileNode = FileNode(name, null, curDirectory, FileNodeType.FILE, size)
+                    curDirectory.children[name] = newFileNode // want it to fail in case it's wrong
+                }
                 curDirectory
             }
         }
 
         val sizeMap = traverseAndReturnDirectorieNamesPlusSizes(root)
 
-        println(sizeMap)
-
         println("Answer to 07a: ${sizeMap.filterValues { it <= 100000 }.values.sum()}")
+        val unusedSpace = 70000000 - sizeMap[root]!!
+        val needMoreSpace = 30000000 - unusedSpace
+        println("Answer to 07b: ${sizeMap.filterValues { it > needMoreSpace }.values.sorted().take(1)}")
+
     }
 }
