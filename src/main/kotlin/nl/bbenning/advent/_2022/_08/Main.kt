@@ -7,12 +7,10 @@ object Main {
     private fun countVisibleFromPoint(l: List<Int>, myHeight: Int) = l.fold(Triple(0, myHeight, false)){ (count, maxHeight, wasBlocked), height  ->
         if(wasBlocked) {
             Triple(count, maxHeight, wasBlocked)
+        } else if(height < myHeight) {
+            Triple(count + 1, maxHeight, false)
         } else {
-            if(height < myHeight) {
-                Triple(count + 1, maxHeight, false)
-            } else {
-                Triple(count + 1, height, true)
-            }
+            Triple(count + 1, height, true)
         }
     }.first
 
