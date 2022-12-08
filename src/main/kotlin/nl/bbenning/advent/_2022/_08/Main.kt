@@ -4,22 +4,23 @@ import nl.bbenning.advent.utils.CollectionsUtil
 import java.io.File
 
 object Main {
-    private fun countVisibleFromPoint(l: List<Int>, myHeight: Int) = l.fold(Triple(0, myHeight, false)){ (count, maxHeight, wasBlocked), height  ->
-        if(wasBlocked) {
-            Triple(count, maxHeight, wasBlocked)
-        } else if(height < myHeight) {
-            Triple(count + 1, maxHeight, false)
-        } else {
-            Triple(count + 1, height, true)
-        }
-    }.first
+    private fun countVisibleFromPoint(l: List<Int>, myHeight: Int) =
+        l.fold(Triple(0, myHeight, false)) { (count, maxHeight, wasBlocked), height ->
+            if (wasBlocked) {
+                Triple(count, maxHeight, wasBlocked)
+            } else if (height < myHeight) {
+                Triple(count + 1, maxHeight, false)
+            } else {
+                Triple(count + 1, height, true)
+            }
+        }.first
 
     @JvmStatic
     fun main(args: Array<String>) {
         val inputStrings = File("./src/main/resources/inputs/2022/input08.txt").readLines()
 
         val map = inputStrings.map { strList -> strList.map { Integer.valueOf("" + it) } }
-        val mapReversed = map.map {it.reversed()}
+        val mapReversed = map.map { it.reversed() }
         val mapTransposed = CollectionsUtil.transpose(map)
         val mapTransposedAndReversed = CollectionsUtil.transpose(map).map { it.reversed() }
 
@@ -41,9 +42,9 @@ object Main {
         val visibleFromPoint = map.mapIndexed { y, line ->
             line.mapIndexed { x, treeHeight ->
                 val isVisibleToWest = countVisibleFromPoint(mapReversed[y].drop(horizontalSize - x), treeHeight)
-                val isVisibleToEast = countVisibleFromPoint(map[y].drop(x+1), treeHeight)
+                val isVisibleToEast = countVisibleFromPoint(map[y].drop(x + 1), treeHeight)
                 val isVisibleToNorth = countVisibleFromPoint(mapTransposedAndReversed[x].drop(verticalSize - y), treeHeight)
-                val isVisibleToSouth = countVisibleFromPoint(mapTransposed[x].drop(y+1), treeHeight)
+                val isVisibleToSouth = countVisibleFromPoint(mapTransposed[x].drop(y + 1), treeHeight)
 
                 isVisibleToEast * isVisibleToWest * isVisibleToNorth * isVisibleToSouth
             }
