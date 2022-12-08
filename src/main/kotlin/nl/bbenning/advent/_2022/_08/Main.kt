@@ -11,7 +11,7 @@ object Main {
             if(height < myHeight) {
                 Triple(count + 1, maxHeight, false)
             } else {
-                Triple(count +  1, height, true)
+                Triple(count + 1, height, true)
             }
         }
     }.first
