@@ -22,7 +22,7 @@ object Main {
         val map = inputStrings.map { strList -> strList.map { Integer.valueOf("" + it) } }
         val mapReversed = map.map { it.reversed() }
         val mapTransposed = CollectionsUtil.transpose(map)
-        val mapTransposedAndReversed = CollectionsUtil.transpose(map).map { it.reversed() }
+        val mapTransposedAndReversed = mapTransposed.map { it.reversed() }
 
         val visibility = map.mapIndexed { y, line ->
             line.mapIndexed { x, treeHeight ->
