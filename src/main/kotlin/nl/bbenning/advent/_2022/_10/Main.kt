@@ -9,7 +9,6 @@ object Main {
     fun main(args: Array<String>) {
         val inputStrings = File("./src/main/resources/inputs/2022/input10.txt").readLines()
 
-
         val output = inputStrings.fold(listOf(1)) { acc, s ->
             val curVal = acc.last()
             if (s == "noop") {
@@ -24,17 +23,13 @@ object Main {
             if (cycle == 20 || (cycle - 20) % 40 == 0) i * cycle else 0
         }.fold(0) { acc, i -> acc + i }
 
-        println("Answer to 10a: $solution10a")
-
-        val printedLines = output.chunked(40).map { shiftValues ->
+        val solution10b = output.chunked(40).map { shiftValues ->
             shiftValues.foldIndexed("") { index, acc, shiftVal ->
                 acc + if (index + 1 in shiftVal .. shiftVal + 2) "█" else " "
             }
         }
 
-        printedLines.forEach { println(it) }
-
-        // 13480
-        // EGJBGCFK
+        println("Answer to 10a: $solution10a")
+        solution10b.forEach { println(it) }
     }
 }
