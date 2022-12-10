@@ -29,7 +29,7 @@ object Main {
         val printedLines = output.chunked(40).map { shiftValues ->
             shiftValues.foldIndexed("") { index, acc, i ->
                 val takePixelAt = index - i + 1
-                acc + if (takePixelAt in 0 .. 3) "#" else "."
+                acc + if (takePixelAt in 0 .. 2) "#" else "."
             }
         }
 
