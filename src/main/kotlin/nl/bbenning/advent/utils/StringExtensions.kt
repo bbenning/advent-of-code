@@ -24,3 +24,5 @@ fun String.decodeHex(): String {
             .toByteArray()
     )
 }
+
+fun String.words(): List<String> = this.split(" ")

@@ -1,7 +1,7 @@
 package nl.bbenning.advent._2022._10
 
+import nl.bbenning.advent.utils.words
 import java.io.File
-import java.math.BigInteger
 
 object Main {
 
@@ -15,7 +15,7 @@ object Main {
             if (s == "noop") {
                 acc + curVal
             } else {
-                acc + curVal + (curVal + s.split(" ")[1].toInt())
+                acc + curVal + (curVal + s.words()[1].toInt())
             }
         }
 
@@ -27,9 +27,8 @@ object Main {
         println("Answer to 10a: $solution10a")
 
         val printedLines = output.chunked(40).map { shiftValues ->
-            shiftValues.foldIndexed("") { index, acc, i ->
-                val takePixelAt = index - i + 1
-                acc + if (takePixelAt in 0 .. 2) "#" else "."
+            shiftValues.foldIndexed("") { index, acc, shiftVal ->
+                acc + if (index + 1 in shiftVal .. shiftVal + 2) "█" else " "
             }
         }
 
