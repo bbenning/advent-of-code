@@ -11,26 +11,18 @@ object Main {
         val intersectingValues = inputStrings.map { str ->
             val a = str.substring(0, str.length / 2)
             val b = str.substring(str.length / 2)
-
             val aIntersectB = a.toSet().intersect(b.toSet())
 
-            aIntersectB.sumOf { letter ->
-                letterValue(letter)
-            }
+            aIntersectB.sumOf { letterValue(it) }
+        }
+
+        val badges = inputStrings.chunked(3).flatMap { (a, b, c) ->
+            a.toSet().intersect(b.toSet()).intersect(c.toSet()).map { letterValue(it) }.toList()
         }
 
         println("Solution to 03a: ${intersectingValues.sum()}")
-
-        val badges = inputStrings.chunked(3).flatMap { groupOf3 ->
-            groupOf3[0].toSet().intersect(groupOf3[1].toSet()).intersect(groupOf3[2].toSet()).map { letterValue(it) }
-        }
-
         println("Solution to 03b: ${badges.sum()}")
     }
 
-    private fun letterValue(letter: Char) = (if (letter.isLowerCase()) {
-        letter - 96
-    } else {
-        letter - 38
-    }).code
+    private fun letterValue(letter: Char) = if (letter.isLowerCase()) letter - 'a' + 1 else letter - 'A' + 27
 }
