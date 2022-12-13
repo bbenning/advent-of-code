@@ -5,7 +5,7 @@ import com.fasterxml.jackson.module.kotlin.*
 
 object Main {
 
-    fun compare(left: Any, right: Any): Int {
+    private fun compare(left: Any, right: Any): Int {
         return when {
             left is Int && right is Int         -> left - right
             left is Int                         -> compare(listOf(left), right)
