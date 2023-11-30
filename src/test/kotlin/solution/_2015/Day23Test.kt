@@ -32,7 +32,7 @@ class Day23Test {
 
             println("Day 23 part 1: $result")
 
-            // assertThat(result).isEqualTo(0)
+            assertThat(result).isEqualTo(170)
         }
     }
 
@@ -47,7 +47,7 @@ class Day23Test {
 
             println("Day 23 part 2: $result")
 
-            // assertThat(result).isEqualTo(0)
+            assertThat(result).isEqualTo(247)
         }
     }
 
