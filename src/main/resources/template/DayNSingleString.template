@@ -1,0 +1,21 @@
+package solution._#YEAR#
+
+import kotlinx.serialization.*
+import kotlinx.serialization.json.*
+import util.*
+import util.mapping.Coord
+import util.mapping.Direction
+
+class Day#DAY#(val input: String) {
+    fun solve1(): Int {
+        return solve()
+    }
+
+    fun solve2():Int {
+        return solve()
+    }
+
+    private fun solve():Int {
+        return 0
+    }
+}
