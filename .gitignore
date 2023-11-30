@@ -26,3 +26,4 @@ replay_pid*
 /build/
 /.gradle/
 .session_cookie
+/src/main/kotlin-old/
