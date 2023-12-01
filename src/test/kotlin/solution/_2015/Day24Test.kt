@@ -13,7 +13,6 @@ import org.junit.jupiter.params.provider.CsvSource
 @DisplayName("Day 24")
 class Day24Test {
 
-
     @Nested
     @DisplayName("Solve 1")
     inner class Solve1 {
@@ -32,7 +31,7 @@ class Day24Test {
 
             println("Day 24 part 1: $result")
 
-            // assertThat(result).isEqualTo(0)
+            assertThat(result).isEqualTo(10723906903L)
         }
     }
 
@@ -55,7 +54,7 @@ class Day24Test {
 
             println("Day 24 part 2: $result")
 
-            // assertThat(result).isEqualTo(0)
+            assertThat(result).isEqualTo(74850409)
         }
     }
 

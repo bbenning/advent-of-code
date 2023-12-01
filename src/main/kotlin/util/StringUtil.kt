@@ -34,3 +34,13 @@ fun String.md5(): String {
 fun String.asJson(): JsonElement = Json.decodeFromString<JsonElement>(this)
 
 fun String.isNumeric() = this.matches("^[-+]?\\d+$".toRegex())
+
+fun String.indices(subString: String): List<Int> {
+    val indices = mutableListOf<Int>()
+    var index = this.indexOf(subString)
+    while (index != -1) {
+        indices.add(index)
+        index = this.indexOf(subString, index + 1)
+    }
+    return indices
+}

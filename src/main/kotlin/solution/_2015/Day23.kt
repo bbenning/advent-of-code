@@ -19,7 +19,4 @@ class Day23(val input: List<String>) {
         return Emulator.run(instructions, registers = mapOf(Pair("a", 1L))).registers["b"]!!
     }
 
-    private fun solve():Int {
-        return 0
-    }
 }
