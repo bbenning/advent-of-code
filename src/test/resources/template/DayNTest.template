@@ -26,7 +26,8 @@ class Day#DAY#Test {
 
         @ParameterizedTest
         @CsvSource(
-            "0,0"
+            "0;0",
+            delimiter = ';'
         )
         fun sample1Parameterized(input: String, output: Int) {
             val result = Day#DAY#(listOf(input)).solve1()
@@ -58,7 +59,8 @@ class Day#DAY#Test {
 
         @ParameterizedTest
         @CsvSource(
-            "0,0"
+            "0;0",
+            delimiter = ';'
         )
         fun sample1Parameterized(input: String, output: Int) {
             val result = Day#DAY#(listOf(input)).solve2()

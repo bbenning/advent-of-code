@@ -56,6 +56,20 @@ fun <U> List<List<U>>.isCorner(coord: Coord): Boolean {
 
 fun Iterable<Int>.product(): Long = this.fold(1){acc, i -> acc * i}
 
+fun <T> List<T>.findFirstDuplicate(): T? {
+    val seenElements = mutableSetOf<T>()
+
+    for (element in this) {
+        if (seenElements.contains(element)) {
+            return element
+        } else {
+            seenElements.add(element)
+        }
+    }
+
+    return null
+}
+
 object CollectionUtil {
     /**
      * Returns a list of a list of all the possible partitions of n into i parts.
