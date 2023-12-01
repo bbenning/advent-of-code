@@ -40,11 +40,6 @@ fun String.asJson(): JsonElement = Json.decodeFromString<JsonElement>(this)
 fun String.isNumeric() = this.matches("^[-+]?\\d+$".toRegex())
 
 fun String.indices(subString: String): List<Int> {
-    val indices = mutableListOf<Int>()
-    var index = this.indexOf(subString)
-    while (index != -1) {
-        indices.add(index)
-        index = this.indexOf(subString, index + 1)
-    }
-    return indices
+    val pattern = subString.toRegex()
+    return pattern.findAll(this).map{it.range.first}.toList()
 }

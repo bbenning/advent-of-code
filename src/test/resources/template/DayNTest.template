@@ -13,7 +13,6 @@ import org.junit.jupiter.params.provider.CsvSource
 @DisplayName("Day #DAY#")
 class Day#DAY#Test {
 
-
     @Nested
     @DisplayName("Solve 1")
     inner class Solve1 {
