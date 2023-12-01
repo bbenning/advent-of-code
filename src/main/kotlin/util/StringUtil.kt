@@ -19,6 +19,10 @@ fun String.longs(): List<Long> {
     return matches.map { it.value.toLong() }.toList()
 }
 
+fun String.numbers(): List<String> {
+    return "(\\d+)".toRegex().findAll(this).map{it.value}.toList()
+}
+
 fun String.alphanumerics(): List<String> {
     return "(\\w+)".toRegex().findAll(this).map{it.value}.toList()
 }
