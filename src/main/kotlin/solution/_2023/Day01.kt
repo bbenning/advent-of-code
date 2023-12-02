@@ -14,7 +14,6 @@ class Day01(val input: List<String>) {
     }
 
     fun solve2():Int {
-
         val replacements:List<String> = listOf("one", "two", "three", "four", "five", "six", "seven", "eight", "nine")
 
         return input.sumOf { str ->
