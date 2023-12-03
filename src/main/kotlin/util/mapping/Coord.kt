@@ -21,5 +21,13 @@ data class Coord(val x: Int, val y: Int) {
         }.drop(1) // dropping 1 because otherwise it wouldn't strictly be the result of a movement.
 
     fun manhattenDistance(other: Coord = Coord(0, 0)): Int = abs(this.y - other.y) + abs(this.x - other.x)
+
+    fun neighborsDiagonally(): Set<Coord> {
+        return setOf(
+            Coord(this.x - 1, this.y - 1), Coord(this.x - 1, y), Coord(this.x - 1, y + 1),
+            Coord(this.x, this.y -1), Coord(this.x , y ), Coord(this.x, y + 1),
+            Coord(this.x + 1, y - 1), Coord(this.x + 1, y), Coord(this.x + 1, y +1)
+        )
+    }
 }
 
