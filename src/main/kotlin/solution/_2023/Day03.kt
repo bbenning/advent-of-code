@@ -14,8 +14,8 @@ class Day03(val input: List<String>) {
 
     fun solve2(): Long {
         return getSymbolsWithPartnumbers()
-            .filter { it.first == '*' && it.second.size == 2}
-            .map { it.second.product() }.sum()
+            .filter { it.first == '*' && it.second.size == 2 }
+            .sumOf { it.second.product() }
     }
 
     private fun getSymbolsWithPartnumbers(): List<Pair<Char, List<Int>>> {
