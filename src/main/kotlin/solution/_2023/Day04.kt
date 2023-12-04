@@ -5,27 +5,24 @@ import kotlin.math.pow
 
 class Day04(val input: List<String>) {
     fun solve1(): Long {
-        return input.sumOf {
+        return getWinners().sumOf {
+            if (it == 0) 0L else (2.0.pow(it - 1).toLong())
+        }
+    }
+
+    fun solve2(): Int {
+        return getWinners().foldIndexed(List(input.size){1}) { idx, acc, winners ->
+            acc.mapIndexed { index, i -> if(index in idx + 1 .. idx + winners) i + acc[idx] else i }
+        }.sum()
+    }
+
+    private fun getWinners(): List<Int> {
+        return input.map {
             val splitString = it.split("|")
             val winningNumbers = splitString[0].ints().drop(1).toSet()
             val myNumbers = splitString[1].ints()
 
-            val winners = myNumbers.count { myNumber -> myNumber in winningNumbers }
-
-            if (winners == 0) 0L else (2.0.pow(winners - 1).toLong())
+            myNumbers.count { myNumber -> myNumber in winningNumbers }
         }
-    }
-
-    fun solve2():Int {
-
-        return input.foldIndexed(List(input.size){1}) { idx, acc, str ->
-            val splitString = str.split("|")
-            val winningNumbers = splitString[0].ints().drop(1).toSet()
-            val myNumbers = splitString[1].ints()
-
-            val winners = myNumbers.count { myNumber -> myNumber in winningNumbers }
-
-            acc.mapIndexed { index, i -> if(index in idx + 1 .. idx + winners) i + acc[idx] else i }
-        }.sum()
     }
 }
