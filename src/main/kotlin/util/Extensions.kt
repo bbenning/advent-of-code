@@ -15,6 +15,14 @@ operator fun Pair<Int,Int>.minus(p: Pair<Int, Int>) = Pair(this.first - p.first,
 operator fun Pair<Int,Int>.times(p: Pair<Int, Int>) = Pair(this.first * p.first, this.second * p.second)
 operator fun Pair<Int,Int>.unaryMinus() = this * Pair(-1, -1)
 
+/**
+ * Replaces the current item in position index with the given item.
+ */
+fun <T> List<T>.updated(index: Int, item: T): List<T> = toMutableList().apply { this[index] = item }
+
+fun <T> List<T>.updatedLast(item: T): List<T> = this.updated(this.size - 1, item)
+fun <T> List<T>.updatedFirst(item: T): List<T> = this.updated(0, item)
+
 // Not quite sure how to do this effectively
 fun <A>memoizedRepeat(repeats: Long, start: A, func: (A) -> A): A {
 
