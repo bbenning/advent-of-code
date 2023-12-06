@@ -19,9 +19,7 @@ class Day06(val input: List<String>) {
         val times = input.first().longs()
         val distances = input[1].longs()
 
-        return times.zip(distances).map{
-            val time = it.first
-            val recordDistance = it.second
+        return times.zip(distances).map{ (time, recordDistance) ->
 
             val zeroPoint1 = (time - sqrt(time*time - 4.0 * recordDistance)) / 2.0
             val zeroPoint2 = (time + sqrt(time*time - 4.0 * recordDistance)) / 2.0
