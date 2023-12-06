@@ -1,12 +1,7 @@
 package solution._2023
 
-import kotlinx.serialization.*
-import kotlinx.serialization.json.*
 import util.*
-import util.mapping.Coord
-import util.mapping.Direction
-import kotlin.math.abs
-import kotlin.math.max
+import util.ints.product
 
 private typealias Color = String
 private typealias Amount = Int

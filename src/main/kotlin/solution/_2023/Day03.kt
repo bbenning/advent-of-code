@@ -1,11 +1,7 @@
 package solution._2023
 
-import kotlinx.serialization.*
-import kotlinx.serialization.json.*
-import util.*
+import util.ints.product
 import util.mapping.Coord
-import util.mapping.Direction
-import kotlin.math.abs
 
 class Day03(val input: List<String>) {
     fun solve1(): Int {

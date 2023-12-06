@@ -21,7 +21,7 @@ class Day#DAY#Test {
             val input = File("./src/test/resources/#YEAR#/day#DAY#/day#DAY#.sample1").readLines()
             val result = Day#DAY#(input).solve1()
 
-            assertThat(result).isEqualTo(0)
+            assertThat(result).isEqualTo(0L)
         }
 
         @ParameterizedTest
@@ -29,7 +29,7 @@ class Day#DAY#Test {
             "0;0",
             delimiter = ';'
         )
-        fun sample1Parameterized(input: String, output: Int) {
+        fun sample1Parameterized(input: String, output: Long) {
             val result = Day#DAY#(listOf(input)).solve1()
 
             assertThat(result).isEqualTo(output)
@@ -42,7 +42,7 @@ class Day#DAY#Test {
 
             println("Day #DAY# part 1: $result")
 
-            // assertThat(result).isEqualTo(0)
+            // assertThat(result).isEqualTo(0L)
         }
     }
 
@@ -54,7 +54,7 @@ class Day#DAY#Test {
             val input = File("./src/test/resources/#YEAR#/day#DAY#/day#DAY#.sample1").readLines()
             val result = Day#DAY#(input).solve2()
 
-            assertThat(result).isEqualTo(0)
+            assertThat(result).isEqualTo(0L)
         }
 
         @ParameterizedTest
@@ -62,7 +62,7 @@ class Day#DAY#Test {
             "0;0",
             delimiter = ';'
         )
-        fun sample1Parameterized(input: String, output: Int) {
+        fun sample1Parameterized(input: String, output: Long) {
             val result = Day#DAY#(listOf(input)).solve2()
 
             assertThat(result).isEqualTo(output)
@@ -75,7 +75,7 @@ class Day#DAY#Test {
 
             println("Day #DAY# part 2: $result")
 
-            // assertThat(result).isEqualTo(0)
+            // assertThat(result).isEqualTo(0L)
         }
     }
 

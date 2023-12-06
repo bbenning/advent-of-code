@@ -54,8 +54,6 @@ fun <U> List<List<U>>.isCorner(coord: Coord): Boolean {
     return (coord.x == 0 || coord.x == this[0].size - 1) && (coord.y == 0 || coord.y == this.size - 1)
 }
 
-fun Iterable<Int>.product(): Long = this.fold(1){acc, i -> acc * i}
-
 fun <T> List<T>.findFirstDuplicate(): T? {
     val seenElements = mutableSetOf<T>()
 

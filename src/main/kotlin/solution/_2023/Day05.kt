@@ -41,6 +41,7 @@ class Day05(val input: List<String>) {
         // A map here consists of multiple lines that are each ranges with movements. This has it for the whole space of longs.
         val allMapsCombined = listOfMaps.zip(listOfMapRangesWithoutMovement).map { it.first + it.second }
 
+        // Each range of seeds leads to a new list of ranges based on each consecutive map of ranges with movements.
         val result = allMapsCombined.fold(seedRanges){ acc: List<LongRange>, rangeMaps: List<RangeMap> ->
             val passThroughMap = acc.flatMap { seedRange: LongRange ->
                 val resultingSeedRanges: List<LongRange> = rangeMaps.map { rangeMap ->

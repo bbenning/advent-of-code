@@ -1,11 +1,7 @@
 package solution._2015
 
-import com.github.shiguruikai.combinatoricskt.powerset
-import kotlinx.serialization.*
-import kotlinx.serialization.json.*
-import util.*
-import util.mapping.Coord
-import util.mapping.Direction
+import util.ints.product
+
 
 class Day24(val input: List<Int>) {
     fun solve1(): Long {
