@@ -11,11 +11,11 @@ class Day06(val input: List<String>) {
         return solve()
     }
 
-    fun solve2():Long {
+    fun solve2(): Long {
         return solve()
     }
 
-    private fun solve():Long {
+    private fun solve(): Long {
         val times = input.first().longs()
         val distances = input[1].longs()
 

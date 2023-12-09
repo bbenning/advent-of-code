@@ -1,0 +1,9 @@
+R
+
+aaA = (aaB, aaB)
+aaB = (aaZ, aaZ)
+aaZ = (aaB, aaB)
+bbA = (bbB, bbB)
+bbB = (bbC, bbC)
+bbC = (bbZ, bbZ)
+bbZ = (bbB, bbB)
