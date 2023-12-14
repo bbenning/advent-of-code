@@ -22,11 +22,15 @@ data class Coord(val x: Int, val y: Int) {
 
     fun manhattenDistance(other: Coord = Coord(0, 0)): Int = abs(this.y - other.y) + abs(this.x - other.x)
 
+    fun neighbors(): Set<Coord> {
+        return setOf(Coord(x - 1, y), Coord(x + 1, y), Coord(x, y - 1), Coord(x, y + 1))
+    }
+
     fun neighborsDiagonally(): Set<Coord> {
         return setOf(
-            Coord(this.x - 1, this.y - 1), Coord(this.x - 1, y), Coord(this.x - 1, y + 1),
-            Coord(this.x, this.y -1), Coord(this.x , y ), Coord(this.x, y + 1),
-            Coord(this.x + 1, y - 1), Coord(this.x + 1, y), Coord(this.x + 1, y +1)
+            Coord(x - 1, y - 1), Coord(x - 1, y), Coord(x - 1, y + 1),
+            Coord(x, y -1), Coord(x , y ), Coord(x, y + 1),
+            Coord(x + 1, y - 1), Coord(x + 1, y), Coord(x + 1, y +1)
         )
     }
 }

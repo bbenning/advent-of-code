@@ -66,9 +66,6 @@ class Day08(val input: List<String>) {
         // apparently takes about an hour on my machine.
         //            .toMutableList()
         //        while(stepsAndCyclesToEndpointsPerGhost.any{it.first != stepsAndCyclesToEndpointsPerGhost[0].first}) {
-        //            if(stepsAndCyclesToEndpointsPerGhost[0].first >= 14_299_763_833_181L) {
-        //                println()
-        //            }
         //            val lowestStepCountAndCycle = stepsAndCyclesToEndpointsPerGhost.minBy { it.first }
         //            val lowestStepCountAndCycleIdx = stepsAndCyclesToEndpointsPerGhost.indexOf(lowestStepCountAndCycle)
         //
