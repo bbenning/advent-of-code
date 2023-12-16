@@ -43,7 +43,7 @@ class Day16Test {
             val input = File("./src/test/resources/2023/day16/day16.sample1").readLines()
             val result = Day16(input).solve2()
 
-            assertThat(result).isEqualTo(51L)
+            assertThat(result).isEqualTo(51)
         }
 
         @Test
