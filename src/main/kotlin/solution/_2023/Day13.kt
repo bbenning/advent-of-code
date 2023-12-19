@@ -42,10 +42,10 @@ class Day13(val input: List<String>) {
         }
     }
 
-    private val horizontalSimilarityCounts = maps.map{map -> findHorizontalReflection(map)}
-    private val verticalSimilarityCounts = transposedMaps.map {map -> findHorizontalReflection(map)}
+    private val horizontalSimilarityCounts = maps.map{map -> findHorizontalDifferences(map)}
+    private val verticalSimilarityCounts = transposedMaps.map {map -> findHorizontalDifferences(map)}
 
-    private fun findHorizontalReflection(map: List<String>): List<Int> {
+    private fun findHorizontalDifferences(map: List<String>): List<Int> {
         return (1 until map.size).mapNotNull { reflectAfterRow ->
             val linesBefore = map.take(reflectAfterRow)
             val linesAfter = map.drop(reflectAfterRow)

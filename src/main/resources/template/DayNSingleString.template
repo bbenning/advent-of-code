@@ -16,11 +16,11 @@ class Day#DAY#(val input: String) {
         return solve()
     }
 
-    fun solve2():Long {
+    fun solve2(): Long {
         return solve()
     }
 
-    private fun solve():Long {
+    private fun solve(): Long {
         return 0
     }
 }
