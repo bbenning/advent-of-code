@@ -35,10 +35,6 @@ fun Int.divisors(): Set<Int> {
     }.toSet()
 }
 
-fun lcm(a: Int, b: Int, vararg numbers: Int): Int = when {
-    numbers.isEmpty() -> abs(a * b) / gcd(a, b)
-    else -> lcm(lcm(a, b), numbers.first(), *numbers.drop(1).toIntArray())
-}
 fun lcm(a: Long, b: Long, vararg numbers: Long): Long = when {
     numbers.isEmpty() -> abs(a * b) / gcd(a, b)
     else -> lcm(lcm(a, b), numbers.first(), *numbers.drop(1).toLongArray())
