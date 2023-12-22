@@ -26,6 +26,10 @@ data class Coord(val x: Int, val y: Int) {
         return setOf(Coord(x - 1, y), Coord(x + 1, y), Coord(x, y - 1), Coord(x, y + 1))
     }
 
+    fun neighborsList(): List<Coord> {
+        return listOf(Coord(x - 1, y), Coord(x + 1, y), Coord(x, y - 1), Coord(x, y + 1))
+    }
+
     fun neighborsDiagonally(): Set<Coord> {
         return setOf(
             Coord(x - 1, y - 1), Coord(x - 1, y), Coord(x - 1, y + 1),
