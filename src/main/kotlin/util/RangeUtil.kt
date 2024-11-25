@@ -17,7 +17,7 @@ object RangeUtil {
     }
 
     /**`
-     * Returns a fully unioned list of UIntRanges that is sorted.
+     * Returns a fully unioned list of LongRanges that is sorted.
      */
     fun unionAllLongRanges(ranges: Iterable<LongRange>): List<LongRange> {
         val sortedRanges = ranges.filter{it != LongRange.EMPTY}.sortedBy { it.first }
