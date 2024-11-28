@@ -37,5 +37,6 @@ tasks {
     }
     test {
         useJUnitPlatform()
+        jvmArgs = listOf("-Xmx16g")
     }
 }
