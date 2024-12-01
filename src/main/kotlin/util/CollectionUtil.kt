@@ -68,6 +68,16 @@ fun <T> List<T>.findFirstDuplicate(): T? {
     return null
 }
 
+fun <T> List<List<T>>.transpose(): List<List<T>> {
+    return if (this.isEmpty()) {
+        emptyList()
+    } else {
+        this[0].indices.map { colIndex ->
+            this.map { row -> row[colIndex] }
+        }
+    }
+}
+
 object CollectionUtil {
     /**
      * Returns a list of a list of all the possible partitions of n into i parts.
