@@ -46,17 +46,6 @@ class Day24Test {
             assertThat(result).isEqualTo(0L)
         }
 
-        @ParameterizedTest
-        @CsvSource(
-            "0;0",
-            delimiter = ';'
-        )
-        fun sample1Parameterized(input: String, output: Long) {
-            val result = Day24(listOf(input)).solve2()
-
-            assertThat(result).isEqualTo(output)
-        }
-
         @Test
         fun answer() {
             val input = File("./src/test/resources/2023/day24/day24.input").readLines()

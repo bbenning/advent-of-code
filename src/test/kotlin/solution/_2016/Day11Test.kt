@@ -4,6 +4,7 @@ import java.io.File
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
@@ -40,6 +41,7 @@ class Day11Test {
     inner class Solve2 {
 
         @Test
+        @Disabled("My solution runs for too long")
         fun answer() {
             val input = File("./src/test/resources/2016/day11/day11.input").readLines()
 

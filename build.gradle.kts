@@ -32,11 +32,11 @@ dependencies {
 tasks {
     withType<KotlinCompile> {
         kotlinOptions {
-            jvmTarget = "17"
+            jvmTarget = "21"
         }
     }
     test {
         useJUnitPlatform()
-        jvmArgs = listOf("-Xmx16g")
+        jvmArgs = listOf("-Xmx8g")
     }
 }
