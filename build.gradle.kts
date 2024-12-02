@@ -29,12 +29,11 @@ dependencies {
     }
 }
 
+kotlin{
+    jvmToolchain(21)
+}
+
 tasks {
-    withType<KotlinCompile> {
-        kotlinOptions {
-            jvmTarget = "21"
-        }
-    }
     test {
         useJUnitPlatform()
         jvmArgs = listOf("-Xmx8g")
