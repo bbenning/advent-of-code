@@ -22,8 +22,8 @@ enum class Direction {
             else -> throw IllegalArgumentException("Impossible turn.")
         }
 
-    fun turnLeft(): Direction = Direction.values()[(this.ordinal - 1).mod(4)]
-    fun turnRight(): Direction = Direction.values()[(this.ordinal + 1).mod(4)]
-    fun turnBack(): Direction = Direction.values()[(this.ordinal + 2).mod(4)]
+    fun turnLeft(): Direction = entries[(this.ordinal - 1).mod(4)]
+    fun turnRight(): Direction = entries[(this.ordinal + 1).mod(4)]
+    fun turnBack(): Direction = entries[(this.ordinal + 2).mod(4)]
 
 }
