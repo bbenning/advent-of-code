@@ -3,6 +3,7 @@ package util
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
 import org.apache.commons.codec.digest.DigestUtils
+import java.math.BigInteger
 
 /**
  * Returns a list of all ints (including minusses)
@@ -17,6 +18,12 @@ fun String.longs(): List<Long> {
     val regex = Regex("-?\\d+")
     val matches = regex.findAll(this)
     return matches.map { it.value.toLong() }.toList()
+}
+
+fun String.bigInts(): List<BigInteger> {
+    val regex = Regex("-?\\d+")
+    val matches = regex.findAll(this)
+    return matches.map { it.value.toBigInteger() }.toList()
 }
 
 fun String.numbers(): List<String> {
