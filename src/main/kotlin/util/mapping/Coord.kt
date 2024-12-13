@@ -23,6 +23,7 @@ data class Coord(val x: Int, val y: Int) {
 
     infix operator fun plus(coord: Coord): Coord = Coord(this.x + coord.x, this.y + coord.y)
     infix operator fun minus(coord: Coord): Coord = Coord(this.x - coord.x, this.y - coord.y)
+    infix operator fun times(times: Int): Coord = Coord(this.x * times, this.y * times)
 
     fun manhattenDistance(other: Coord = Coord(0, 0)): Int = abs(this.y - other.y) + abs(this.x - other.x)
 
@@ -41,6 +42,5 @@ data class Coord(val x: Int, val y: Int) {
             Coord(x + 1, y - 1), Coord(x + 1, y), Coord(x + 1, y +1)
         )
     }
-
 }
 
