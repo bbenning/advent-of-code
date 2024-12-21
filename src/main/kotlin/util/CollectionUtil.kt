@@ -38,6 +38,12 @@ fun <T: List<Long>> T.multiplyLongs(other: List<Long>): List<Long> {
     return this.zip(other).fold(emptyList()){acc, pair -> acc + pair.first * pair.second }
 }
 
+fun List<String>.locateChar(char: Char): Coord {
+    val y = this.indexOfFirst { char in it }
+    val x = this[y].indexOf(char)
+    return Coord(x, y)
+}
+
 fun <U> List<List<U>>.countNeighbors(coord: Coord, predicate: (U) -> Boolean): Int {
     val (x, y) = coord
     return (if (y > 0 && x > 0 && predicate(this[y - 1][x - 1])) 1 else 0) +
