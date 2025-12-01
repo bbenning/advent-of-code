@@ -17,6 +17,7 @@ mkdir -p src/main/kotlin/solution/_"$1"/
 mkdir -p src/test/kotlin/solution/_"$1"/
 mkdir -p src/test/resources/"$1"/day"$DAYSTRING"/
 
+
 #SESSION_COOKIE=$(cat .session_cookie_github)
 SESSION_COOKIE=$(cat .session_cookie)
 curl "https://adventofcode.com/$1/day/$2/input" \
@@ -48,9 +49,9 @@ sed -i "s/#DAY#/$DAYSTRING/g" src/test/kotlin/solution/_"$1"/Day"$DAYSTRING"Test
 
 sensible-browser "https://adventofcode.com/$1/day/$2"
 
-/mnt/c/Program\ Files/JetBrains/IntelliJ\ IDEA\ 2024.1.4/bin/idea64.exe ./src/test/resources/"$1"/day"${DAYSTRING}"/day"${DAYSTRING}".input
-/mnt/c/Program\ Files/JetBrains/IntelliJ\ IDEA\ 2024.1.4/bin/idea64.exe ./src/test/resources/"$1"/day"${DAYSTRING}"/day"${DAYSTRING}".sample1
-/mnt/c/Program\ Files/JetBrains/IntelliJ\ IDEA\ 2024.1.4/bin/idea64.exe ./src/main/kotlin/solution/_"$1"/Day"${DAYSTRING}".kt
-/mnt/c/Program\ Files/JetBrains/IntelliJ\ IDEA\ 2024.1.4/bin/idea64.exe ./src/test/kotlin/solution/_"$1"/Day"${DAYSTRING}"Test.kt
+/mnt/c/Program\ Files/JetBrains/IntelliJ\ IDEA\ 2025.2.1/bin/idea64.exe ./src/test/resources/"$1"/day"${DAYSTRING}"/day"${DAYSTRING}".input
+/mnt/c/Program\ Files/JetBrains/IntelliJ\ IDEA\ 2025.2.1/bin/idea64.exe ./src/test/resources/"$1"/day"${DAYSTRING}"/day"${DAYSTRING}".sample1
+/mnt/c/Program\ Files/JetBrains/IntelliJ\ IDEA\ 2025.2.1/bin/idea64.exe ./src/main/kotlin/solution/_"$1"/Day"${DAYSTRING}".kt
+/mnt/c/Program\ Files/JetBrains/IntelliJ\ IDEA\ 2025.2.1/bin/idea64.exe ./src/test/kotlin/solution/_"$1"/Day"${DAYSTRING}"Test.kt
 
 gradle test --tests "solution._$1.Day${DAYSTRING}Test"
