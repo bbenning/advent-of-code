@@ -26,7 +26,7 @@ class Day06(val input: List<String>) {
         var operation:Char? = null
         var interimResult = 0L
         val results = mutableListOf<Long>()
-        (preparedInput.first().indices).forEach { x ->
+        (0 until preparedInput.maxOf { it.length }).forEach { x ->
             if(operation == null) {
                 operation = preparedInput.last()[x]
                 interimResult = if(operation == '*') {
@@ -37,7 +37,7 @@ class Day06(val input: List<String>) {
             }
 
             val numStr = preparedInput.dropLast(1).fold("") { acc, nums ->
-                val c = nums[x]
+                val c = if(nums.length > x) nums[x] else ' '
                 if(c == ' ') {
                     acc
                 } else {
